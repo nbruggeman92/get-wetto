@@ -1,6 +1,7 @@
 const { User, Animal } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const { updatePoints, getResult, resetPoints } = require('../utils/quiz'); // Added 6/1
+const questions = require('../seeders/questions'); // Added 6/3
 
 // Edited 6/3
 const resolvers = {
@@ -16,8 +17,10 @@ const resolvers = {
     },
     animal: async (parent, { name }) => {
       return Animal.findOne({ name });
+    },
+    questions: async () => {  // Added 6/3
+      return questions;
     }
-    
   },
 
 // Edited 6/3  
