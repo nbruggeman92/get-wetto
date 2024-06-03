@@ -1,33 +1,25 @@
-const db = require('../config/connection');
-const { User, Thought } = require('../models');
-const userSeeds = require('./userSeeds.json');
-const thoughtSeeds = require('./thoughtSeeds.json');
-const cleanDB = require('./cleanDB');
+const db = require("../config/connection");
+const { User, Question } = require("../models");
+const userSeeds = require("./userSeeds.json");
+const questions = require("./questions");
+const cleanDB = require("./cleanDB");
 
-db.once('open', async () => {
+// Added and edited 6/3
+db.once("open", async () => {
   try {
-    await cleanDB('Thought', 'thoughts');
+    await cleanDB("User", "users");
+    await cleanDB("Question", "questions");
 
-    await cleanDB('User', 'users');
-
+    // Create users from seed data
     await User.create(userSeeds);
 
-    for (let i = 0; i < thoughtSeeds.length; i++) {
-      const { _id, thoughtAuthor } = await Thought.create(thoughtSeeds[i]);
-      const user = await User.findOneAndUpdate(
-        { username: thoughtAuthor },
-        {
-          $addToSet: {
-            thoughts: _id,
-          },
-        }
-      );
-    }
+    // Create questions from the seed data
+    await Question.insertMany(questions);
+
+    console.log("All done!");
+    process.exit(0);
   } catch (err) {
     console.error(err);
     process.exit(1);
   }
-
-  console.log('all done!');
-  process.exit(0);
 });
