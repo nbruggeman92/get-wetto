@@ -1,18 +1,26 @@
-const { User, Thought } = require('../models');
+const { User, Animal } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const { updatePoints, getResult, resetPoints } = require('../utils/quiz'); // Added 6/1
 
+// Edited 6/3
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('thoughts');
+      return User.find();
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
+      return User.findOne({ username });
     },
+    animals: async () => {
+      return Animal.find();
+    },
+    animal: async (parent, { name }) => {
+      return Animal.findOne({ name });
+    }
     
   },
 
+// Edited 6/3  
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -23,13 +31,13 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw AuthenticationError;
+        throw new AuthenticationError('Incorrect Credentials');
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw AuthenticationError;
+        throw new AuthenticationError('Incorrect Credentials');
       }
 
       const token = signToken(user);
