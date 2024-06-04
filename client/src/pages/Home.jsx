@@ -1,6 +1,3 @@
-import React from 'react';
-import NavBar from '../components/NavBar/NavBar';
-import Footer from '../components/Footer/Footer';
 import HomePage from '../components/HomePage/HomePage';
 import backgroundVideo from '../images/backgroundsvg.mp4';
 import './home.css';
@@ -22,11 +19,9 @@ const Home = () => {
 
       {/* Render the main content */}
       <div className="content">
-        <NavBar />
         <div className="main-content">
           <HomePage />
         </div>
-        <Footer className='footer-container' />
       </div>
     </div>
   );

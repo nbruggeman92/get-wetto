@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar/NavBar';
 import Footer from '../components/Footer/Footer';
 import './Quiz.css';
@@ -68,7 +68,7 @@ const questions = [
 ];
 
 function Quiz() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState(Array(questions.length).fill(''));
 
@@ -82,7 +82,7 @@ function Quiz() {
     if (currentQuestion === questions.length - 1) {
       // Last question, calculate the score and navigate to the result page
       const score = calculateScore();
-      history.push('/result', { state: { score, totalQuestions: questions.length } });
+      navigate('/result', { state: { score, totalQuestions: questions.length } });
     } else {
       setCurrentQuestion((prevQuestion) => prevQuestion + 1);
     }

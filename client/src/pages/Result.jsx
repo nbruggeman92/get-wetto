@@ -1,16 +1,18 @@
 import React from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar/NavBar';
 import Footer from '../components/Footer/Footer';
 import './Result.css';
 
 function Result() {
+  
+  const navigate = useNavigate();
   const location = useLocation();
   const { score, totalQuestions } = location.state || {};
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleRestartQuiz = () => {
-    history.push('/quiz');
+    navigate('/quiz');
   };
 
   return (

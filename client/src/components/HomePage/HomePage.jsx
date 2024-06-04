@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import './HomePage.css';
+import { Link } from 'react-router-dom';
 
 function HomePage() {
   return (
@@ -12,7 +13,7 @@ function HomePage() {
           Discover the animal within you. Take our quiz and unleash your wild side!
         </p>
         <Button variant="danger" size="lg" className="animated-button">
-          TAKE THE QUIZ
+          <Link to="/quiz"> TAKE THE QUIZ</Link>
         </Button>
       </div>
     </div>
