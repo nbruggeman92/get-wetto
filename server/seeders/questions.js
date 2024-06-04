@@ -1,4 +1,4 @@
-// Added 6/3
+// Point system
 const questions = [
     {
       text: 'How do you prefer to spend your free time?',
@@ -135,4 +135,24 @@ const questions = [
   ];
   
   module.exports = questions;
+  
+
+  // // Range system with utils/quiz.js
+  // // adjust scores as we see fit 
+
+  // const questions = [
+  //   {
+  //     text: 'How do you prefer to spend your free time?',
+  //     options: [
+  //       { text: 'fishing', score: 10 }, // bear
+  //       { text: 'running/exercising', score: 25 }, // jaguar
+  //       { text: 'flying/aerial sports', score: 40 }, // eagle
+  //       { text: 'swimming/water sports', score: 55 }, // dolphin
+  //       { text: 'slowly moving around planning the next few steps', score: 70 }, // sloth
+  //       { text: 'making educational speed runs', score: 90 } // corgi
+  //     ]
+  //   },
+  //   // Add rest of questions with similair format as above
+  // ];
+  // module.exports = questions;
   
