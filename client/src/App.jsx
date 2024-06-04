@@ -1,24 +1,25 @@
 import { useState } from 'react';
-import HomePage from './components/HomePage/HomePage';
-import Footer from './components/Footer/Footer';
-import NavBar from './components/NavBar/NavBar';
-import background from './images/backgroundsvg.mp4';
+import Home from './pages/Home';
+import Quiz from './pages/Quiz';
+import Result from './pages/Result';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <video className="background-video" autoPlay loop muted playsInline playbackRate={0.1}>
-  <source src={background} type="video/mp4" />
-</video>
-      <div className="content">
-        <NavBar />
-        <div className="homepage-wrapper">
-          <HomePage />
+    <BrowserRouter>
+      <div className="App">
+        <div className="background"></div>
+          <div className="main-content">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/quiz" component={Quiz} />
+              <Route path="/result" component={Result} />
+            </Switch>
+          </div>
         </div>
-        <Footer />
-      </div>
-    </div>
+      
+    </BrowserRouter>
   );
 }
 
