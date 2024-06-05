@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+// import Auth from '../../utils/auth';
 import './NavBar.css';
 
 const isValidEmail = (email) => {
@@ -51,7 +53,7 @@ const NavBar = () => {
     // If form is valid, you can handle the login or sign-up logic here
     if (isValid) {
       console.log('Form is valid');
-      // ... (login or sign-up logic)
+      
     }
   };
 
@@ -79,7 +81,7 @@ const NavBar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className="navbar-title">COEUS</div>
+        <div className="navbar-title"><Link className="link" to="/">COEUS</Link></div>
         <div
           className={`navbar-button ${isHovered ? 'hovered' : ''}`}
           onMouseEnter={handleMouseEnter}
