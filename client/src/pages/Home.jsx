@@ -1,5 +1,6 @@
 import HomePage from '../components/HomePage/HomePage';
 import backgroundVideo from '../images/backgroundsvg.mp4';
+
 import './home.css';
 
 const Home = () => {

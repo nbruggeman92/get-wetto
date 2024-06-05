@@ -24,6 +24,10 @@
     letter-spacing: 2px;
     animation: bounce 2s infinite;
   }
+  .navbar-title .link {
+    color: #fff;
+    text-decoration: none;
+  }
   
  
   .navbar-button {
