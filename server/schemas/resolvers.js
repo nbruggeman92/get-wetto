@@ -1,9 +1,9 @@
 const { User, Animal } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
-const { updatePoints, getResult, resetPoints } = require('../utils/quiz'); // Added 6/1
-const questions = require('../seeders/questions'); // Added 6/3
+// const { updatePoints, getResult, resetPoints } = require('../utils/quiz'); // Added 6/1
+// const questions = require('../seeders/questions'); // Added 6/3
 
-// Edited 6/3
+// Point system
 const resolvers = {
   Query: {
     users: async () => {
@@ -18,12 +18,11 @@ const resolvers = {
     animal: async (parent, { name }) => {
       return Animal.findOne({ name });
     },
-    questions: async () => {  // Added 6/3
+    questions: async () => { 
       return questions;
     }
   },
-
-// Edited 6/3  
+  
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -47,7 +46,7 @@ const resolvers = {
 
       return { token, user };
     },
-    submitQuiz: (_, { answers }) => {  // Added 6/1
+    submitQuiz: (_, { answers }) => {
       // Reset points for a new quiz
       resetPoints();
 
@@ -61,3 +60,70 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+
+// Range system 
+
+// const { User, Animal } = require('../models');
+// const { signToken, AuthenticationError } = require('../utils/auth');
+// const { updateScore, getResult, resetScore } = require('../utils/quiz');
+// const questions = require('../seeders/questions'); // Ensure this import is correct
+
+// const resolvers = {
+//   Query: {
+//     users: async () => {
+//       return User.find();
+//     },
+//     user: async (parent, { username }) => {
+//       return User.findOne({ username });
+//     },
+//     animals: async () => {
+//       return Animal.find();
+//     },
+//     animal: async (parent, { name }) => {
+//       return Animal.findOne({ name });
+//     },
+//     questions: async () => {
+//       return questions;
+//     }
+//   },
+
+//   Mutation: {
+//     addUser: async (parent, { username, email, password }) => {
+//       const user = await User.create({ username, email, password });
+//       const token = signToken(user);
+//       return { token, user };
+//     },
+//     login: async (parent, { email, password }) => {
+//       const user = await User.findOne({ email });
+
+//       if (!user) {
+//         throw new AuthenticationError('Incorrect Credentials');
+//       }
+
+//       const correctPw = await user.isCorrectPassword(password);
+
+//       if (!correctPw) {
+//         throw new AuthenticationError('Incorrect Credentials');
+//       }
+
+//       const token = signToken(user);
+
+//       return { token, user };
+//     },
+//     submitQuiz: (_, { answers }) => {
+//       // Reset score for a new quiz
+//       resetScore();
+
+//       // Update score based on answers
+//       answers.forEach(answer => updateScore(answer));
+
+//       // Get the result
+//       const result = getResult();
+
+//       // Find the corresponding animal
+//       return Animal.findOne({ name: result });
+//     }
+//   }
+// };
+
+// module.exports = resolvers;

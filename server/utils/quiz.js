@@ -1,6 +1,4 @@
-//Added 6/1, for Cliff to see
-
-// utils/quiz.js
+// Point sytem
 const animalPoints = {
     Bear: 0,
     Jaguar: 0,
@@ -51,4 +49,40 @@ const animalPoints = {
     getResult,
     resetPoints
   };
+  
+  // Range system (recommended feedback)
+  
+  // const animalRanges = {
+  //   Bear: [12, 21],
+  //   Jaguar: [22, 31],
+  //   Eagle: [32, 41],
+  //   Dolphin: [42, 51],
+  //   Sloth: [52, 61],
+  //   Corgi: [62, 72]
+  // };
+  
+  // let totalScore = 0;
+  
+  // function updateScore(answerScore) {
+  //   totalScore += answerScore;
+  // }
+  
+  // function getResult() {
+  //   for (const [animal, range] of Object.entries(animalRanges)) {
+  //     if (totalScore >= range[0] && totalScore <= range[1]) {
+  //       return animal;
+  //     }
+  //   }
+  //   return null;
+  // }
+  
+  // function resetScore() {
+  //   totalScore = 0;
+  // }
+  
+  // module.exports = {
+  //   updateScore,
+  //   getResult,
+  //   resetScore
+  // };
   
