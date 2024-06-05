@@ -11,6 +11,9 @@ const animalSchema = new Schema({
   description: {
     type: String,
     required: true
+  },
+  range: {
+    type: []    
   }
   // Image
 });
