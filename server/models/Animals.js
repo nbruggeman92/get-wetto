@@ -12,10 +12,14 @@ const animalSchema = new Schema({
     type: String,
     required: true
   },
-  range: {
-    type: []    
+  image: {
+    type: String,
+    required: true
+  }, 
+  altText: {
+    type: String,
+    required: true
   }
-  // Image
 });
 
 // Create the animal model
