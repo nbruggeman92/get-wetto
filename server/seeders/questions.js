@@ -144,15 +144,15 @@ const questions = [
   //   {
   //     text: 'How do you prefer to spend your free time?',
   //     options: [
-  //       { text: 'fishing', score: 10 }, // bear
-  //       { text: 'running/exercising', score: 25 }, // jaguar
-  //       { text: 'flying/aerial sports', score: 40 }, // eagle
-  //       { text: 'swimming/water sports', score: 55 }, // dolphin
-  //       { text: 'slowly moving around planning the next few steps', score: 70 }, // sloth
-  //       { text: 'making educational speed runs', score: 90 } // corgi
+  //       { text: 'fishing', score: 1 }, // bear
+  //       { text: 'running/exercising', score: 2 }, // jaguar
+  //       { text: 'flying/aerial sports', score: 3 }, // eagle
+  //       { text: 'swimming/water sports', score: 4 }, // dolphin
+  //       { text: 'slowly moving around planning the next few steps', score: 5 }, // sloth
+  //       { text: 'making educational speed runs', score: 6 } // corgi
   //     ]
   //   },
-  //   // Add rest of questions with similair format as above
+  //   // Add rest of questions with similair format as above after decision is made. 
   // ];
   // module.exports = questions;
   

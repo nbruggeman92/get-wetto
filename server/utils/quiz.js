@@ -53,12 +53,12 @@ const animalPoints = {
   // Range system (recommended feedback)
   
   // const animalRanges = {
-  //   Bear: [0, 16],
-  //   Jaguar: [17, 33],
-  //   Eagle: [34, 50],
-  //   Dolphin: [51, 67],
-  //   Sloth: [68, 84],
-  //   Corgi: [85, 100]
+  //   Bear: [12, 21],
+  //   Jaguar: [22, 31],
+  //   Eagle: [32, 41],
+  //   Dolphin: [42, 51],
+  //   Sloth: [52, 61],
+  //   Corgi: [62, 72]
   // };
   
   // let totalScore = 0;
