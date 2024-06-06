@@ -19,8 +19,12 @@ function Result() {
   return (
     <div className="result-container">
       <h1 className="result-title">Quiz Result</h1>
-
-      
+        <div>
+          {animal.name}
+          {animal.image}
+          {animal.altText}
+          {animal.description}
+        </div>      
       <button className="restart-button" onClick={handleRestartQuiz}>
         Restart Quiz
       </button>
