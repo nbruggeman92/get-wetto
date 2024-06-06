@@ -5,13 +5,15 @@ import Footer from '../components/Footer/Footer';
 import './Quiz.css';
 
 import { useQuery } from '@apollo/client';
-import { GET_QUESTIONS } from '../utils/queries';
+import { GET_QUESTIONS, QUERY_ME } from '../utils/queries';
 
 
 
 function Quiz() {
   // import qurey , results animal
 const {loading,data} = useQuery(GET_QUESTIONS)
+const {loading:loading2,data:data2} = useQuery(QUERY_ME)
+console.log(data2)
 
 const questions = data?.questions || []
 console.log(questions)
@@ -45,7 +47,7 @@ const animalRanges = {
     if (currentQuestion === questions.length - 1) {
       // Last question, calculate the result and navigate to the result page
       const result = getResult(totalScore);
-      navigate('/result', { state: { result } });
+      navigate(`/result/${data2.me.username}`, { state: { result } });
     } else {
       setCurrentQuestion((prevQuestion) => prevQuestion + 1);
     }

@@ -32,6 +32,7 @@ const typeDefs = `
     animals: [Animal]
     animal(name: String!): Animal
     questions: [Question]
+    me: User
   }
 
   type Auth {
