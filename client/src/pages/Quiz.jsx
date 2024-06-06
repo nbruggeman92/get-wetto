@@ -65,7 +65,7 @@ const animalRanges = {
 
   return (
     <div className="quiz-container">
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="quiz-content">
         <h1 className="quiz-title">Quiz</h1>
         {currentQuestion < questions.length ? (
