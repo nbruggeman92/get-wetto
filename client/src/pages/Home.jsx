@@ -1,14 +1,11 @@
 import HomePage from '../components/HomePage/HomePage';
 import backgroundVideo from '../../public/images/backgroundsvg.mp4';
-// import NavBar from '../components/NavBar/NavBar';
-// import Footer from '../components/Footer/Footer';
-
 import './home.css';
+import { motion } from 'framer-motion';
 
 const Home = () => {
   return (
     <div className="home">
-      {/* Render the background video */}
       <div className="background-container">
         <video
           className="background-video"
@@ -19,21 +16,16 @@ const Home = () => {
           src={backgroundVideo}
         />
       </div>
-      {/* <div className="navbar-sec">
-        <NavBar />
-      </div> */}
-      
-
-      {/* Render the main content */}
       <div className="content">
-        <div className="main-content">
+        <motion.div
+          className="main-content"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <HomePage />
-        </div>
+        </motion.div>
       </div>
-      {/* <div className="footer-sec">
-        <Footer />
-      </div> */}
-      
     </div>
   );
 };

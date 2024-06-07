@@ -1,115 +1,122 @@
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    z-index: 999;
-  }
-  
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .navbar-title {
-    color: gold;
-    font-size: 50px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    animation: bounce 2s infinite;
-  }
-  .navbar-title .link {
-    color: #fff;
-    text-decoration: none;
-  }
-  
- 
-  .navbar-button {
-    transition: all 0.3s ease-in-out; /* Add transition */
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  z-index: 999;
+}
 
-  .navbar-button:hover {
-    background-color: #333; /* Change background color on hover */
-    color: #fff; /* Change text color on hover */
-    transform: scale(1.1); /* Scale up the button on hover */
-  }
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-  .navbar-button {
-    transition: all 0.3s ease-in-out;
-    padding: 10px 20px; /* Add some padding */
-    border-radius: 5px; /* Rounded corners */
-    background-color: #fff; /* Default background color */
-    color: #333; /* Default text color */
-    cursor: pointer; /* Change cursor to a pointer on hover */
-  }
+.navbar-title {
+  color: gold;
+  font-size: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: bounce 2s infinite;
+}
+.navbar-title .link {
+  background: #44c611;
+  background: linear-gradient(to right, #44c611 46%, #8173cf 66%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-decoration: none;
+}
 
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(-10px);
-    }
-    60% {
-      transform: translateY(-5px);
-    }
-  }
-  
- 
+.navbar-button {
+  transition: all 0.3s ease-in-out; /* Add transition */
+  font-size: 2rem;
+}
 
-  .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  .modal-open {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  
-  .modal-content {
-    background-color: rgba(0, 0, 0, 2);
-    padding: 20px;
-    border: 1px solid #888;
-    width: 30%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transform: scale(0.5);
-    opacity: 0;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  }
-  
-  .modal-content-open {
-    transform: scale(1);
-    opacity: 1;
-  }
+.navbar-button:hover {
+  background-color: #0ef512; /* Change background color on hover */
+  color: #135533; /* Change text color on hover */
+  transform: scale(1.1); /* Scale up the button on hover */
+}
 
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
+.navbar-button {
+  transition: all 0.3s ease-in-out;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding: 10px 20px; /* Add some padding */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #264d22; /* Default background color */
+  color: #efe7e7; /* Default text color */
+  cursor: pointer; /* Change cursor to a pointer on hover */
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
   }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background-color: rgba(0, 0, 0, 2);
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transform: scale(0.5);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.modal-content-open {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+}
 
 .close-button:hover,
 .close-button:focus {
@@ -120,8 +127,10 @@
 
 .modal-title {
   text-align: center;
+  font-size: 2rem;
   margin-bottom: 30px;
   color: darkolivegreen;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .modal-form {
@@ -143,13 +152,14 @@
 
 .modal-button {
   width: 80%;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 1.3rem;
 }
 
 .modal-button:hover {
@@ -170,8 +180,14 @@
 
 .modal-header {
   display: flex;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
-  color: #e2a83c;
+    background: #44c611;
+  background: linear-gradient(to right, #44c611 46%, #8173cf 66%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  font-size: 2rem;
 }

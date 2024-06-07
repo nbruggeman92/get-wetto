@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Footer from '../components/Footer/Footer';
-// import NavBar from '../components/NavBar/NavBar';
 import './Quiz.css';
-
 import { useQuery } from '@apollo/client';
 import { GET_QUESTIONS, QUERY_ME } from '../utils/queries';
+import { motion } from 'framer-motion';
 
 function Quiz() {
   const { loading, data } = useQuery(GET_QUESTIONS);
@@ -59,18 +57,55 @@ function Quiz() {
   }
 
   return (
-    <div className="quiz-container">
-      {/* <NavBar /> */}
+    <motion.div
+      className="quiz-container"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="quiz-background">
+        <motion.img
+          src="/images/background.jpg"
+          alt="quiz background"
+          className="background-image"
+          initial={{ scale: 1.2 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1 }}
+        />
+      </div>
       <div className="quiz-content">
-        <h1 className="quiz-title">Quiz</h1>
+        <motion.h1
+          className="quiz-title"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          "Quiz"
+        </motion.h1>
         {currentQuestion < questions.length ? (
-          <div className="quiz-card">
+          <motion.div
+            className="quiz-card"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             <h2 className="question-text">
               Question {questions[currentQuestion].id}: {questions[currentQuestion].text}
             </h2>
-            <ul className="option-list">
+            <motion.ul
+              className="option-list"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
               {questions[currentQuestion].options.map((option, index) => (
-                <li key={index} className="option-item">
+                <motion.li
+                  key={index}
+                  className="option-item"
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.8 + index * 0.1 }}
+                >
                   <label className="option-label">
                     <input
                       type="radio"
@@ -82,22 +117,34 @@ function Quiz() {
                     />
                     <span className="option-text">{option.text}</span>
                   </label>
-                </li>
+                </motion.li>
               ))}
-            </ul>
-            <button className="submit-button" onClick={handleNextQuestion}>
+            </motion.ul>
+            <motion.button
+              className="submit-button"
+              onClick={handleNextQuestion}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 1 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               {currentQuestion === questions.length - 1 ? 'Submit' : 'Next'}
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         ) : (
-          <div className="quiz-result">
+          <motion.div
+            className="quiz-result"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             <h2>Quiz Completed!</h2>
             <p>Your result will be displayed on the result page.</p>
-          </div>
+          </motion.div>
         )}
       </div>
-      {/* <Footer /> */}
-    </div>
+    </motion.div>
   );
 }
 

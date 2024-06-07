@@ -7,22 +7,17 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { Outlet } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 
-
-
-// Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
-// Construct request middleware that will attach the JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
   const token = localStorage.getItem('id_token');
-  // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
@@ -32,7 +27,6 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
@@ -40,14 +34,29 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="App">
+      <motion.div
+        className="App"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="background"></div>
-          <div className="main-content">
+        <div className="main-content">
+          <div className="navbar">
             <NavBar />
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <Outlet />
-            <Footer className='footer-container' />
+          </motion.div>
+          <div className="footer">
+            <Footer />
           </div>
         </div>
+      </motion.div>
     </ApolloProvider>
   );
 }
