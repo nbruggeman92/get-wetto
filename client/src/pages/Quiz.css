@@ -1,12 +1,12 @@
 /* General Styles */
-body {
+/* body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #ffffff;
     height: 100vh;
     margin: 0;
     overflow: hidden;
     
-  }
+  } */
   
   /* Quiz Container */
   .quiz-container {
@@ -14,7 +14,7 @@ body {
     flex-direction: column;
     height: 100vh;
     overflow: auto;
-    background-image: url('../images/background.jpg');
+    background-image: url('../../public/images/background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -37,7 +37,8 @@ body {
     font-size: 3rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: gold;
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
     margin-bottom: 2rem;
     animation: slideDown 1s ease-in-out;
   }
@@ -55,15 +56,19 @@ body {
   
   /* Question Text */
   .question-text {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
+    color: lightgreen;
   }
   
   /* Option List */
   .option-list {
+    font-size: 1.2rem;
+    font-family: monospace;
     list-style: none;
     padding: 0;
     margin: 0;
+    color: lightgoldenrodyellow ;
   }
   
   /* Option Item */

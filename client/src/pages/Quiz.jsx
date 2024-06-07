@@ -1,32 +1,26 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavBar from '../components/NavBar/NavBar';
-import Footer from '../components/Footer/Footer';
+// import Footer from '../components/Footer/Footer';
+// import NavBar from '../components/NavBar/NavBar';
 import './Quiz.css';
 
 import { useQuery } from '@apollo/client';
 import { GET_QUESTIONS, QUERY_ME } from '../utils/queries';
 
-
-
 function Quiz() {
-  // import qurey , results animal
-const {loading,data} = useQuery(GET_QUESTIONS)
-const {loading:loading2,data:data2} = useQuery(QUERY_ME)
-console.log(data2)
+  const { loading, data } = useQuery(GET_QUESTIONS);
+  const { loading: loading2, data: data2 } = useQuery(QUERY_ME);
 
-const questions = data?.questions || []
-console.log(questions)
+  const questions = data?.questions || [];
 
-
-const animalRanges = {
-  Bear: [12, 21],
-  Jaguar: [22, 31],
-  Eagle: [32, 41],
-  Dolphin: [42, 51],
-  Sloth: [52, 61],
-  Corgi: [62, 72]
-};
+  const animalRanges = {
+    Bear: [12, 21],
+    Jaguar: [22, 31],
+    Eagle: [32, 41],
+    Dolphin: [42, 51],
+    Sloth: [52, 61],
+    Corgi: [62, 72],
+  };
 
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -38,14 +32,12 @@ const animalRanges = {
     newSelectedOptions[questionIndex] = event.target.value;
     setSelectedOptions(newSelectedOptions);
 
-    // Update total score
     const newTotalScore = totalScore + score;
     setTotalScore(newTotalScore);
   };
 
   const handleNextQuestion = () => {
     if (currentQuestion === questions.length - 1) {
-      // Last question, calculate the result and navigate to the result page
       const result = getResult(totalScore);
       navigate(`/result/${data2.me.username}`, { state: { result } });
     } else {
@@ -61,13 +53,14 @@ const animalRanges = {
     }
     return null;
   };
-  if (loading) {
+
+  if (loading || loading2) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="quiz-container">
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="quiz-content">
         <h1 className="quiz-title">Quiz</h1>
         {currentQuestion < questions.length ? (
@@ -103,7 +96,7 @@ const animalRanges = {
           </div>
         )}
       </div>
-      <Footer className='footer' />
+      {/* <Footer /> */}
     </div>
   );
 }
