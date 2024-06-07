@@ -2,8 +2,6 @@ import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import "./Result.css";
 import { GET_ANIMAL } from "../utils/queries";
-// import NavBar from "../components/NavBar/NavBar";
-// import Footer from "../components/Footer/Footer";
 import { motion } from 'framer-motion';
 
 function Result() {
@@ -47,10 +45,14 @@ function Result() {
       initial="hidden"
       animate="visible"
     >
-      {/* <div className="navbar">
-        <NavBar />
-      </div> */}
-
+      <motion.div
+        className="result-background"
+        initial={{ scale: 1.2 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <img src="/images/result.jpg" alt="quiz background" className="background-image" />
+      </motion.div>
       <div className="result-content">
         <motion.div className="result-card" variants={itemVariants}>
           <motion.h1 className="result-title" variants={itemVariants}>
@@ -90,10 +92,6 @@ function Result() {
           </motion.button>
         </motion.div>
       </div>
-
-      {/* <div className="footer">
-        <Footer />
-      </div> */}
     </motion.div>
   );
 }

@@ -3,12 +3,15 @@ import './Footer.css';
 
 const styles = {
     footer: {
-        padding: '20px',
+        padding: '0px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         position: 'relative',
         overflow: 'hidden',
+        zIndex: 1,
+        height: '150px',
+        marginTop: '-30px',
     },
     icon: {
         fontSize: '3rem',
@@ -18,6 +21,7 @@ const styles = {
         '&:hover': {
             color: '#ff5722',
             animation: 'iconBounce 0.5s ease-in-out',
+            
           },
     },
     linksUl: {
@@ -39,8 +43,6 @@ const styles = {
     },
    
     copyright: {
-        color: '#fff',
-        fontSize: '20px',
         opacity: 0.8,
         textAlign: 'center',
         position: 'relative',
@@ -101,7 +103,7 @@ export default function Footer() {
                     </li>
                 ))}
             </ul>
-            <div style={styles.copyright}>&copy; {currentYear} Created By Group 2</div>
+            <div className='copy' style={styles.copyright}>&copy; {currentYear} Created By Group 2</div>
         </div>
     );
 }

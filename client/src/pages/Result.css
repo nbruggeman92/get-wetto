@@ -1,17 +1,27 @@
 .result-container {
+  position: relative;
   min-height: 100vh;
-  background: url('../../public/images/result.jpg') no-repeat center center/cover;
   display: flex;
-  flex-direction: column;
-  
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
 }
 
-.navbar {
+.result-background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
+  height: 100%;
+  z-index: -1;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: zoomInOut 20s ease-in-out infinite;
 }
 
 .result-content {
@@ -19,7 +29,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px 20px;
+  padding: 180px 20px;
+  margin-top: -100px;
 }
 
 .result-card {
@@ -35,6 +46,7 @@
 .result-title {
   font-size: 3rem;
   font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: black;
   margin-bottom: 30px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -46,8 +58,12 @@
 
 .animal-name {
   font-size: 3rem;
-  font-family:monospace ;
-  color: darkgreen;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background: #AA214C;
+background: linear-gradient(to right, #AA214C 26%, #0E98BE 66%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -73,8 +89,8 @@
 }
 
 .restart-button {
-  background-color: #ff6b6b;
-  color: #fff;
+  background-color: #0ef512;
+  color: #490e0e;
   border: none;
   border-radius: 30px;
   padding: 15px 40px;
