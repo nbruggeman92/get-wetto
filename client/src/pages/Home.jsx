@@ -1,5 +1,7 @@
 import HomePage from '../components/HomePage/HomePage';
-import backgroundVideo from '../images/backgroundsvg.mp4';
+import backgroundVideo from '../../public/images/backgroundsvg.mp4';
+// import NavBar from '../components/NavBar/NavBar';
+// import Footer from '../components/Footer/Footer';
 
 import './home.css';
 
@@ -17,6 +19,10 @@ const Home = () => {
           src={backgroundVideo}
         />
       </div>
+      {/* <div className="navbar-sec">
+        <NavBar />
+      </div> */}
+      
 
       {/* Render the main content */}
       <div className="content">
@@ -24,6 +30,10 @@ const Home = () => {
           <HomePage />
         </div>
       </div>
+      {/* <div className="footer-sec">
+        <Footer />
+      </div> */}
+      
     </div>
   );
 };
