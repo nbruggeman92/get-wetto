@@ -37,7 +37,7 @@ const animalSeedData = [
   {
     name: "Corgi",
     description:
-      "You're a Corgi! Known for your intelligence and loyalty, you approach life with a playful and inquisitive spirit. Your boundless energy and cheerful demeanor make you a joy to be around, and your unwavering loyalty makes you a steadfast friend. Your unique charm and lovable nature make you impossible to resist.",
+      "You're a Corgi! Your hunger for DATA is unmatched. There can never be enough DATA for you, even if you own it all. Your goal is to conquer GAM, and you know you will accomplish this by going 1% at a time.",
     image: "/images/Corgi.png",
     altText: "Corgi Image"
   },
