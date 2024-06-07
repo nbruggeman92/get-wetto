@@ -61,9 +61,9 @@ const styles = {
 
 const githubUrls = [
     'https://github.com/Moe1362',
-    'https://github.com/Moe1362/repo2',
-    'https://github.com/Moe1362/repo3',
-    'https://github.com/Moe1362/repo4',
+    'https://github.com/AlexCapilla',
+    'https://github.com/nbruggeman92',
+    'https://github.com/ccreed86',
 ];
 
 export default function Footer() {
