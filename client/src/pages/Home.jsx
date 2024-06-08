@@ -1,6 +1,6 @@
 import HomePage from '../components/HomePage/HomePage';
 import backgroundVideo from '../../public/images/backgroundsvg.mp4';
-import './home.css';
+import './Home.css';
 import { motion } from 'framer-motion';
 
 const Home = () => {
