@@ -191,3 +191,46 @@
   
   font-size: 2rem;
 }
+
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .navbar-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-title {
+    font-size: 30px; /* Smaller font size for the title */
+    margin-bottom: 10px;
+  }
+
+  .navbar-button {
+    font-size: 1.5rem; /* Smaller font size for the button */
+    padding: 8px 16px;
+    margin-top: 10px;
+  }
+
+  .modal-content {
+    width: 90%; /* Increase the width on smaller screens */
+    padding: 15px; /* Adjust padding */
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  .modal-title {
+    font-size: 1.5rem; /* Adjust title font size */
+  }
+
+  .modal-input {
+    width: 90%; /* Adjust input width */
+  }
+
+  .modal-button {
+    width: 90%; /* Adjust button width */
+    font-size: 1rem; /* Adjust button font size */
+  }
+}
