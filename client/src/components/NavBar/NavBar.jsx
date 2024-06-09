@@ -1,11 +1,9 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
 import { useMutation } from "@apollo/client";
 import { ADD_USER, LOGIN_USER } from "../../utils/mutations";
 import "./NavBar.css";
-
-
 
 const NavBar = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -18,24 +16,20 @@ const NavBar = () => {
   const [passwordError, setPasswordError] = useState("");
   const [logout, setLogout] = useState(false);
 
-const [addUser] = useMutation(ADD_USER);
-const [login] = useMutation(LOGIN_USER);
+  const [addUser] = useMutation(ADD_USER);
+  const [login] = useMutation(LOGIN_USER);
 
-useEffect(() => {
-  
+  useEffect(() => {
     const status = Auth.loggedIn();
     setLogout(status);
-
-}, []);
+  }, []);
 
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
-  
-  // Helper function to validate password strength
+
   const isValidPassword = (password) => {
-    // Password should be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
     return passwordRegex.test(password);
   };
@@ -44,9 +38,9 @@ useEffect(() => {
     setEmail(e.target.value);
     setEmailError("");
   };
+
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
-    setUsernameError("");
   };
 
   const handlePasswordChange = (e) => {
@@ -56,9 +50,7 @@ useEffect(() => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
 
-    // Validate email and password
     let isValid = true;
     if (!isValidEmail(email)) {
       setEmailError("Please enter a valid email address.");
@@ -81,7 +73,7 @@ useEffect(() => {
       setEmail("");
       setPassword("");
       setLogout(true);
-    }else if (isValid && !isLogin) {
+    } else if (isValid && !isLogin) {
       addUser({
         variables: { username, email, password },
       }).then((response) => {
@@ -92,19 +84,18 @@ useEffect(() => {
       setEmail("");
       setPassword("");
       setLogout(true);
-    
-    
     }
-    
   };
 
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
+
   const handleLogout = () => {
     Auth.logout();
     setLogout(false);
-  }
+    window.location.href = "/"; // Redirect to the home page
+  };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
@@ -131,34 +122,29 @@ useEffect(() => {
           </Link>
         </div>
         {logout ? (
-           <div
-           className={`navbar-button ${isHovered ? "hovered" : ""}`}
-           onMouseEnter={handleMouseEnter}
-           onMouseLeave={handleMouseLeave}
-           onClick={handleLogout}
-         >
-           Logout
-         </div>
-
-        ): (
           <div
-          className={`navbar-button ${isHovered ? "hovered" : ""}`}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          onClick={handleModalOpen}
-        >
-          Login/Sign Up
-        </div>
-
+            className={`navbar-button ${isHovered ? "hovered" : ""}`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={handleLogout}
+          >
+            Logout
+          </div>
+        ) : (
+          <div
+            className={`navbar-button ${isHovered ? "hovered" : ""}`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={handleModalOpen}
+          >
+            Login/Sign Up
+          </div>
         )}
-       
       </div>
 
       {showModal && (
         <div className={`modal ${showModal ? "modal-open" : ""}`}>
-          <div
-            className={`modal-content ${showModal ? "modal-content-open" : ""}`}
-          >
+          <div className={`modal-content ${showModal ? "modal-content-open" : ""}`}>
             <h2 className="modal-header">Welcome to COEUS</h2>
             <span className="close-button" onClick={handleModalClose}>
               &times;
@@ -187,7 +173,7 @@ useEffect(() => {
               ) : (
                 <>
                   <input
-                    name="usrename"
+                    name="username"
                     value={username}
                     type="text"
                     placeholder="Username"

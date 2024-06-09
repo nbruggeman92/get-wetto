@@ -24,6 +24,7 @@ function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState(Array(questions.length).fill(''));
   const [totalScore, setTotalScore] = useState(0);
+  const [showMessage, setShowMessage] = useState(false);
 
   const handleOptionChange = (event, questionIndex, score) => {
     const newSelectedOptions = [...selectedOptions];
@@ -36,11 +37,24 @@ function Quiz() {
 
   const handleNextQuestion = () => {
     if (currentQuestion === questions.length - 1) {
-      const result = getResult(totalScore);
-      navigate(`/result/${data2.me.username}`, { state: { result } });
+      if (selectedOptions.every((option) => option !== '')) {
+        const result = getResult(totalScore);
+        navigate(`/result/${data2.me.username}`, { state: { result } });
+      } else {
+        setShowMessage(true);
+      }
     } else {
-      setCurrentQuestion((prevQuestion) => prevQuestion + 1);
+      if (selectedOptions[currentQuestion] === '') {
+        setShowMessage(true);
+      } else {
+        setShowMessage(false);
+        setCurrentQuestion((prevQuestion) => prevQuestion + 1);
+      }
     }
+  };
+
+  const handlePreviousQuestion = () => {
+    setCurrentQuestion((prevQuestion) => prevQuestion - 1);
   };
 
   const getResult = (score) => {
@@ -120,17 +134,42 @@ function Quiz() {
                 </motion.li>
               ))}
             </motion.ul>
-            <motion.button
-              className="submit-button"
-              onClick={handleNextQuestion}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 1 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {currentQuestion === questions.length - 1 ? 'Submit' : 'Next'}
-            </motion.button>
+            {showMessage && (
+              <motion.p
+                className="error-message"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                Please answer the question before proceeding.
+              </motion.p>
+            )}
+            <div className="button-container">
+              {currentQuestion > 0 && (
+                <motion.button
+                  className="previous-button"
+                  onClick={handlePreviousQuestion}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 1 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Previous
+                </motion.button>
+              )}
+              <motion.button
+                className="submit-button"
+                onClick={handleNextQuestion}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 1 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {currentQuestion === questions.length - 1 ? 'Submit' : 'Next'}
+              </motion.button>
+            </div>
           </motion.div>
         ) : (
           <motion.div
