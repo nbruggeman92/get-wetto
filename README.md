@@ -12,6 +12,8 @@ Take a quiz and discover your wild side! This web app is a quiz that will assign
 - [Badges](#badges)
 - [Features](#features)
 - [Contribute](#how-to-contribute)
+- [Presentation](#slide-presentation)
+- [Screenshots](#screenshots)
 
 ## Installation
 
@@ -49,7 +51,7 @@ run npm *** and insert on of the folling, replacing the ***.
 
 
 
-Take a quize and discover your wild side. We will collect your data and use it as we feel fit! Muahahahahahaha!!!!!
+Take a quiz and discover your wild side. We will collect your data and use it as we feel fit! Muahahahahahaha!!!!!
 
 ## Credits
 
@@ -98,3 +100,10 @@ You can contribute via the following GitHub link.
 https://github.com/nbruggeman92/get-wetto
 
 Clone the repo, create a branch and request a pull via push of your contributions. We will review and decide from there.
+
+## Slide Presentation
+
+https://docs.google.com/presentation/d/1_4m8k2qX_YmIoexiaqg-TW5iToZ6VPKlhR8w07bHDss/edit?usp=sharing
+
+## Screenshots
+
