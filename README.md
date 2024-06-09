@@ -3,14 +3,13 @@
 ## Description
 Take a quiz and discover your wild side! This web app is a quiz that will assign you an animal: Bear, Jaguar, Eagle, Dolphin, Sloth, and Cody the Corgi. (Cody is a homage to our Sensei). Answer the twelve questions and discover your animal. Have fun!
 
-## Table of Contents (Optional)
+## Table of Contents 
 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
 - [Badges](#badges)
-- [Features](#features)
 - [Contribute](#how-to-contribute)
 - [Presentation](#slide-presentation)
 - [Screenshots](#screenshots)
@@ -39,6 +38,10 @@ npm install will install the following dependencies;
     "react-router-dom": "^6.11.2",
     "vitest": "^1.4.0"
 
+    
+- [Table of Contents](#table-of-contents)
+
+
 ## Usage
 
 run npm *** and insert on of the folling, replacing the ***. 
@@ -53,9 +56,17 @@ run npm *** and insert on of the folling, replacing the ***.
 
 Take a quiz and discover your wild side. We will collect your data and use it as we feel fit! Muahahahahahaha!!!!!
 
+
+- [Table of Contents](#table-of-contents)
+
+
 ## Credits
 
 Thanks to Kyle V and Drew H for beign great instructors and providing all of their students with wonder full help and direction as we learned to Full-Stack Code!!!
+
+
+- [Table of Contents](#table-of-contents)
+
 
 ## License
 
@@ -83,6 +94,10 @@ SOFTWARE.
 
 (https://opensource.org/license/mit)
 
+
+- [Table of Contents](#table-of-contents)
+
+
 ## Badges
 
 ![MIT License](https://img.shields.io/badge/License-MIT-darkgreen)
@@ -91,9 +106,12 @@ SOFTWARE.
 
 (https://shields.io/)
 
-## Features
+
+- [Table of Contents](#table-of-contents)
+
 
 ## How to Contribute
+
 
 You can contribute via the following GitHub link.
 
@@ -101,9 +119,31 @@ https://github.com/nbruggeman92/get-wetto
 
 Clone the repo, create a branch and request a pull via push of your contributions. We will review and decide from there.
 
+
+- [Table of Contents](#table-of-contents)
+
+
 ## Slide Presentation
+
 
 https://docs.google.com/presentation/d/1_4m8k2qX_YmIoexiaqg-TW5iToZ6VPKlhR8w07bHDss/edit?usp=sharing
 
-## Screenshots
+
+- [Table of Contents](#table-of-contents)
+
+
+## Screenshots  
+
+
+![Landing Page via Desktop](./screenshots/coeus_langing_page.png)
+
+![Quiz Page layout via Desktop](./screenshots/coeus_quiz.png)
+
+![Landing Page via Mobile](./screenshots/coeus_mobile.png)
+
+![Quiz Page layout via Mobile](./screenshots/coeus_mobile_quiz.png)
+
+- [Table of Contents](#table-of-contents)
+
+
 
