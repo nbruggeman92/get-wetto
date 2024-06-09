@@ -47,11 +47,9 @@
 .question-text {
   font-size: 1.8rem;
   background: #FF3273;
-background: linear-gradient(to right, #FF3273 26%, #4F5CBE 66%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-
-
+  background: linear-gradient(to right, #FF3273 26%, #4F5CBE 66%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin-bottom: 20px;
 }
@@ -85,6 +83,13 @@ background: linear-gradient(to right, #FF3273 26%, #4F5CBE 66%);
   cursor: pointer;
 }
 
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.previous-button,
 .submit-button {
   padding: 12px 24px;
   font-size: 1.4rem;
@@ -96,8 +101,16 @@ background: linear-gradient(to right, #FF3273 26%, #4F5CBE 66%);
   transition: background-color 0.3s ease-in-out;
 }
 
+.previous-button:hover,
 .submit-button:hover {
   background-color: #0056b3;
+}
+
+.error-message {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: red;
+  font-size: 1.4rem;
+  margin-top: 10px;
 }
 
 .quiz-result {
@@ -143,6 +156,7 @@ background: linear-gradient(to right, #FF3273 26%, #4F5CBE 66%);
     font-size: 16px;
   }
 
+  .previous-button,
   .submit-button {
     padding: 10px 20px;
     font-size: 16px;
