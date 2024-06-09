@@ -36,18 +36,14 @@ function Quiz() {
   };
 
   const handleNextQuestion = () => {
-    if (currentQuestion === questions.length - 1) {
-      if (selectedOptions.every((option) => option !== '')) {
+    if (selectedOptions[currentQuestion] === '') {
+      setShowMessage(true);
+    } else {
+      setShowMessage(false);
+      if (currentQuestion === questions.length - 1) {
         const result = getResult(totalScore);
         navigate(`/result/${data2.me.username}`, { state: { result } });
       } else {
-        setShowMessage(true);
-      }
-    } else {
-      if (selectedOptions[currentQuestion] === '') {
-        setShowMessage(true);
-      } else {
-        setShowMessage(false);
         setCurrentQuestion((prevQuestion) => prevQuestion + 1);
       }
     }
@@ -149,6 +145,7 @@ function Quiz() {
                 <motion.button
                   className="previous-button"
                   onClick={handlePreviousQuestion}
+                  disabled={selectedOptions[currentQuestion] === ''}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 1 }}
@@ -161,6 +158,7 @@ function Quiz() {
               <motion.button
                 className="submit-button"
                 onClick={handleNextQuestion}
+                disabled={selectedOptions[currentQuestion] === ''}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 1 }}
