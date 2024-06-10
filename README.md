@@ -44,6 +44,8 @@ npm install will install the following dependencies;
 
 ## Usage
 
+https://get-wetto.onrender.com/
+
 run npm *** and insert on of the folling, replacing the ***. 
 
     "start": "cd server && npm start",
